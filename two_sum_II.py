@@ -1,12 +1,12 @@
 def twoSum(numbers: list[int], target: int) -> list[int]:
+    hash_map = {}
+    
     for i, num in enumerate(numbers):
         complement = target - num
-        if complement == num:
-            continue
+        if complement in hash_map:
+            return [hash_map[complement] + 1, i + 1]
         
-        if complement in numbers[i + 1:]:
-            complementInd = numbers[i + 1:].index(complement) + i + 1
-            return [i + 1, complementInd + 1]
+        hash_map[num] = i
         
 if __name__ == "__main__":
     print(twoSum([1, 2, 3, 4], 3))

@@ -1,4 +1,4 @@
-def twoSum(nums: list[int], target: int) -> List[int]:
+def twoSum(nums: list[int], target: int) -> list[int]:
     num_map = {}
 
     for i, num in enumerate(nums):
