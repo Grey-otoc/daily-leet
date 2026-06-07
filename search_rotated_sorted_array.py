@@ -23,3 +23,9 @@ def search(nums: list[int], target: int) -> int:
 
 if __name__ == "__main__":
     print(search([4,5,6,7,0,1,2,3], 0))
+    
+    s = "Was it a car or a cat I saw?"
+    s = [c for c in s if c.isalnum()]
+    s_rev = [c for c in s[::-1] if c.isalnum()]
+
+    print(s, s_rev)
