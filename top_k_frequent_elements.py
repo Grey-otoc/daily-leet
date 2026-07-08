@@ -1,9 +1,20 @@
 def topKFrequent(nums: list[int], k: int) -> list[int]:
-    hash_map = {}
+    counts = {}
 
     for num in nums:
-        hash_map[num] = 1 + hash_map.get(num, 0)
+        counts[num] = 1 + counts.get(num, 0)
     
-    map_sorted = sorted(hash_map.items(), key=lambda pair: pair[1], reverse=True)
+    frequencies = [[] for _ in range(len(nums) + 1)]
+
+    for num, count in counts.items():
+        frequencies[count].append(num)
     
-    return [pair[0] for pair in map_sorted[:k]]
+    result = []
+    for freq in frequencies[::-1]:
+        for num in freq:
+            result.append(num)
+            if len(result) == k:
+                return result
+
+if __name__ == "__main__":
+    print(topKFrequent([1,2,2,3,3,3], 2))
